@@ -8,7 +8,8 @@ resource "google_compute_instance" "myinstance" {
 
 
   network_interface {
-    network = subnet
+    network = var.vpcid
+    subnetwork = var.subnetworkid
     access_config {}
   }
   machine_type = "e2-micro"
@@ -18,7 +19,7 @@ resource "google_compute_instance" "myinstance" {
 }
 
 resource "google_compute_firewall" "ssh" {
-  name = "allow-ssh"
+  name = var.ssh
   
   allow {
     ports    = ["22"]

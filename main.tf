@@ -9,7 +9,11 @@ module "vpc" {
 
 module "compute-vm" {
    source = "./modules/compute-vm"
-   count = 5
-   instance_name = "my_instance${count.index}"
+   vpcid = module.vpc.vpcid
+   subnetworkid = module.vpc.subid
+   count = 2
+   ssh = "allow-shh${count.index}"
+   instance_name = "myinstance${count.index}"
+   project_id = var.projectid
    depends_on = [ module.vpc ]
 }

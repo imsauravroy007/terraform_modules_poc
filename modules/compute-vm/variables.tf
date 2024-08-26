@@ -1,8 +1,6 @@
 variable "project_id" {
-  
   type = string
-  default = "playground-s-11-e88dd218"
-}
+  }
 
 variable "instance_name" {
   type = string
@@ -22,5 +20,9 @@ variable "vpcid" {
 }
 
 variable "subnetworkid" {
+  type = string
+}
+
+variable "ssh" {
   type = string
 }

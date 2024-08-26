@@ -1,6 +1,6 @@
 
 output "vpcid" {
-  value = google_compute_network.myvpc.id
+  value = google_compute_network.myvpc.name
 }
 
 output "subid" {
