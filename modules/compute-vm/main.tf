@@ -14,8 +14,7 @@ resource "google_compute_instance" "myinstance" {
   }
   machine_type = "e2-micro"
   zone         = "us-east1-b"
-
-  metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python3-pip rsync; pip install flask"
+  metadata_startup_script = file("${path.module}/app-server.sh")
 }
 
 resource "google_compute_firewall" "ssh" {
